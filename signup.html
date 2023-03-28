@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link href="css/signup.css" rel="stylesheet">
+       <!-- <script src="js/validation.js"></script>-->
+    </head>
+    <body style="background-image: url(images/background1.jpeg);">
+        
+        <form id="form" method="post" action="http://localhost:3000/">
+            <div class="center" style="padding-bottom: 35px;">
+                <label><h1>Signup</h1></label>
+                <br>
+                <div id="error" style="margin-left: 80px;color: red;"></div>
+                <br>
+                <br>
+                <input id="user1" class="fstinp" type="text" placeholder="Username" name="enter">
+                <br>
+                <br>
+                <input  class="fstinp" id="mail1" type="email" placeholder="Emailid" name="enter1">
+                <br>
+                <br>
+            
+                <input id="detect" class="fstinp"   type="password" placeholder="Password" name="enter2">
+                <br>
+                <input class="fstinp"  id="detect1" type="password" placeholder="re-type Password" name="enter3">
+                <br>
+                <input type="checkbox" >
+                <label> <strong>Agree to the terms and condition</strong></label>
+                <br>
+                <br>
+                <br>
+                <input class="end2" id="sub"   type="submit">
+                <br>
+            </div>
+        </form>
+        <script>
+            
+    form.addEventListener('submit',(e)=>{
+        //alert("hi")
+        console.log(e);
+        
+        const name1 = document.getElementById("user1").value;
+        const password = document.getElementById("detect").value;
+        const re_password = document.getElementById("detect1").value;
+        const error = document.getElementById("error"); 
+        const form = document.getElementById("form");
+        const sub = document.getElementById("sub");
+        //we can write regular expressions for pass and user name if we want
+        let messages = []
+        if(name1 === ''|| name1== null){
+            messages.push('name is required');
+        }
+        if(password === ''|| password== null){
+            messages.push('password is required');
+        }
+        if(password!==re_password){
+            messages.push('re_password does not match with password');
+        }
+        if(messages.length > 0){
+            e.preventDefault();
+            error.innerText = messages.join(', ');
+        }
+        if(messages.length === 0){
+            error.innerText = messages.join(', ');
+        }
+    })
+        </script>
+    
+    </body>
+</html>

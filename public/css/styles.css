@@ -1,0 +1,50 @@
+body{
+/*background-image: url("images/background1.jpeg");*/
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+opacity: 0.9;
+}
+.parasign{
+    display: inline-block;
+}
+h3{
+    display: inline-block;
+}
+.fstinp{
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+    width:400px;
+    height:40px;
+}
+h1{
+    padding-left: 150px;
+}
+.forgot{
+    margin-left: 180px;
+}
+.center{
+    background-color: azure;
+    padding: 40px;
+    border-radius: 10%;
+    width:fit-content;
+    position: relative;
+    top: 140px;
+    left:130px;
+}
+.end2{
+    position: relative;
+    bottom:10px;
+    height:40px;
+    width:140px;
+    margin-left:150px;
+    background-color: rgb(42, 151, 165);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:large;
+    border-radius:30px;
+}
+.move{
+    position: relative;
+    left:110px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer care</title>
+    <link href="css/customercare.css" rel="stylesheet">
+</head>
+        <%a = Object.keys(trap)%>
+        <%for(i=0;i<a.length;i++){%>
+            <%for(j=0;j<trap[a[i]].length;j++){%>
+            <form  method="post" action="/customercare"> 
+            <div class="divide1">
+                
+                <p class="display"><b><%=trap[a[i]][j]%></b></p> 
+                <div class="divide2">
+                    <input type="text" name="answers" style="height: 150px;width:80%;border-radius: 20px;position: relative;left: 60px;">  
+                    <input style="height: 0px;width: 0px;" name="climaxx" value="<%=trap[a[i]][j]%>">
+                </div>   
+                <button name="button" value="<%=a[i]%>" class="common" style="background-color: red;border-radius: 10px;padding:5px;position: relative;left:520px">send and remove</button>
+                </div>
+            </form>
+            <br>
+            <br>
+                <%}%>     
+            
+            
+            <%}%>
+    
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+        body{
+            margin-top: 60px;
+        }
+        .display{
+            font-size: 18px;
+            position: relative;
+            left:60px;
+            font-family:'poppins','sans-serif';
+        }
+        .divide1{
+            padding: 10px;
+            background-color:lightyellow;
+            border-radius: 20px;
+            position: relative;
+            left:60px;
+        }
+        .test0{
+        font-family: 'poppins';
+        font-size: medium;
+        color: brown;
+        }
+        .divide2{
+
+        }
+        .common{
+            font-family: 'poppins','sans-serif';
+            color: white;
+            border:none;
+        }
+    </style>
+</body>
+</html>

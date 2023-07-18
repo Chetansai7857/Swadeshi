@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+
+header {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
+      url("../images/srilanka1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.List{
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.dishes{
+    width: 700px;
+    float: right;
+    position: relative;
+    right:150px;
+    top:20px;
+    font-size: 22px;
+    font-family: 'Poppins',sans-serif;
+
+
+}
+
+.dishes1{
+    width: 700px;
+    float: right;
+    position: relative;
+    right:150px;
+    top:20px;
+    font-size: 22px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.abc{
+    width:450px;
+    height:300px;
+    padding-left: 20px;
+}
+
+.heading2{
+    color:blue;
+}
+
+.title{
+    color:crimson ;
+}

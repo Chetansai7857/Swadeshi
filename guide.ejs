@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide</title>
+</head>
+<body>
+    <img style="height: 500px;width: 100%;" src="images/guide.jpeg" alt="guide">
+    <form id="form1"  action="/guide" method="post">
+        <p style="font-size:30px ;position: relative;bottom: 250px;width:800px;left:160px;color: white;font-family: 'Poppins','sans-serif';"><span style="display: block;font-size:50px;font-family: 'Poppins','sans-serif';"><b>Find your next stay</b> </span><b>search low prices on guides and much more...</b></p>
+        <div class="main" style="padding: 10px;background-color: rgb(189, 241, 241);width: fit-content;position: relative;bottom: 220px;left:150px">
+            <input id="loc"  class="incsiz" style="width: 450px;" name="loc" type="text" placeholder="enter the location">
+            <input id="rating" class="incsiz" style="width: 150px;" name="rating" type="number" placeholder="enter the rating(1-5)">
+            <input id="lang"  class="incsiz" style="width: 350px;" name="lang" type="text" placeholder="enter the language">
+            <input id="price" class="incsiz" style="width: 150px;" name="price" type="number" placeholder="enter your price">
+            <button id="submit" name="logic" value="form1" style="height: 45px;width: 80px;background-color:steelblue;font-family:'Poppins',sans-serif" type="submit">Serach</button>
+            <div style="text-align: center;color: red" id="error"></div>
+        </div>   
+    </form>
+    <marquee width="60%" direction="down" height="100px" style="position: relative;bottom:100px;left:400px">
+        <h2 style="color: red;"> Welcome, book the guide as per your requirements, enjoy the trip!</h2>
+         </marquee>
+    <!--<p><(per)display(per)></p>-------array containing the list of dictionary objects about the guides-->
+    <%a= display%>
+    <%if(a.length>0){%>
+        <div class="disp" style="position:relative;bottom: 100px;left:150px;width: fit-content;background-color: rgb(220, 201, 106);">
+            <p class="linedisplay size1">Name</p>
+            <p class="linedisplay size1">Price</p>
+            <p class="linedisplay size1">Location</p>
+            <p class="linedisplay size1">Phone Number</p>
+            <p class="linedisplay size1">E-mail</p>
+            <p class="linedisplay size1">Rating</p>
+        </div>
+        <div class="maindisplay" style="position: relative;left: 150px;bottom:120px;width:1360px;height: 150px;overflow: auto;background-color: rgb(191, 232, 244);border-radius: 15px">
+            <%for(i=0;i<display.length;i++){%><!--dictionary about the guide-->
+            <p class="linedisplay"><b><%=display[i].name%></b></p>
+            <p class="linedisplay"><b><%=display[i].price%></b></p>
+            <p class="linedisplay"><b><%=display[i].location%></b></p>
+            <p class="linedisplay"><b><%=display[i].phone_number%></b></p>
+            <p class="linedisplay"><b><%=display[i].E_mail%></b></p>
+            <p class="linedisplay"><b><%=display[i].rating%></b></p>
+            <%}%>
+        </div>
+        <%}%>
+        
+        <form id="form2" method="post" action="/guide">
+            <input id="guide" style="border-radius: 20px;height: 40px;width:250px;border-color:rgb(179, 148, 23);margin-right: 10px;" type="text" name="guide" placeholder="enter the guide name">
+            <input style="border-radius: 20px;height: 40px;width:250px;border-color:rgb(179, 148, 23);" type="text" name="rating" placeholder="enter the place">
+            <button style="font-family:'poppins';height:40px ;width:130px;border-radius: 30px;background-color:#638A3A;border-color: #638A3A;position: relative;border: none;color: white;font-weight: 700;cursor: pointer;" type="submit" name="logic" value="form2">Search reviews</button>
+        </form>
+        <div class="climax">
+            <%b=displ[0].gvn_ratings%>
+            <%a=Object.keys(b)%> 
+             <%for(i=0;i<a.length;i++){%>
+                    <%=a[i]%>
+                    <%for(j=0;j<2;j++){%>
+                        <%=b[a[i]][j]%>
+                    <%}%>       
+                    <br>  
+                <%}%> 
+           </div>
+       </div>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+        .size1{
+            font-size: 25px;
+        }
+        .incsiz{
+            font-family:'Poppins',sans-serif;
+            height:45px;
+        }
+        .linedisplay{
+            display: inline-block;
+            font-family: 'poppins','sans-serif';
+            width:220px;
+            text-align: center;
+            /* padding-left: 50px;
+            padding-top: 50px;
+            padding-right: 50px; */
+        }
+
+        .climax1{
+            visibility:hidden;
+        }
+    </style>
+    <script>
+        form1.addEventListener('submit',(e)=>{
+            const messages=[]
+            const error = document.getElementById("error");
+            const location = document.getElementById("loc").value;
+            const rating = document.getElementById("rating").value;
+            const price = document.getElementById("price").value;
+            if(location===''||location==null){
+                messages.push("Location is required");
+                messages.push("Enter the location!");
+            }
+            if(messages.length>0){
+                e.preventDefault();
+                error.innerText = messages.join(',');    
+            }
+        });
+        form2.addEventListener('submit',(e)=>{
+            var g = document.getElementById("guide").value;
+            if(g===""||g==null){
+                document.getElementsByClassName("climax")[0].classList.add("climax1")
+                e.preventDefault();
+            }
+            
+        })
+     form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+     });
+    </script>
+    
+</body>
+</html>

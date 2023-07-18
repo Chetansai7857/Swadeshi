@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels</title>
+</head>
+<body style="margin: 0px;background-color:aliceblue;" ><!--style="background-image: url(images/hotels.jpeg);opacity: 10;background-repeat: no-repeat;background-size:cover;background-position: center;">-->
+    <img src="images/hotels1.jpeg" style="height: 500px;width: 100%;" alt="find hotels">
+   <form id="form1" method="post" action="/hotels">
+    <div class="find" style="background-color:rgb(228, 228, 16) ;width:fit-content;padding: 5px;position: relative;bottom: 30px;left:250px">
+        <input name="destination" style="height: 45px;width:450px;font-family: 'Poppins','sans-serif';" type="text" placeholder="where are you going?">
+        <input name="price" style="height: 45px;width:200px;font-family: 'Poppins','sans-serif';" type="number" placeholder="price per day">
+        <input name="rating" style="height: 45px;width:250px;font-family: 'Poppins','sans-serif';"type="number" placeholder="enter the rating">
+        <button type="submit" name="logic" value="search" style="height: 45px;width:100px;font-family: 'Poppins','sans-serif';background-color:dodgerblue;" >Search</button>
+    </div>
+</form>
+    <p style="font-size:30px ;position: relative;bottom: 320px;left:250px;color: white;font-family: 'Poppins','sans-serif';width: fit-content;"><span style="display: block;font-size:50px;font-family: 'Poppins','sans-serif';"><b>Find your next stay</b> </span><b>search low prices on hotels and much more...</b></p>
+    <!-- <p class="sample">place for card slider</p> -->
+    <div class="container">
+        <%if(pandagow.length>0){%>
+        <div class="disp" style="position:relative;bottom: 100px;left:150px;width: fit-content;background-color: rgb(220, 201, 106);">
+            <!-- <img src="" alt=""> -->
+            <p class="linedisplay size1">Name</p>
+            <p class="linedisplay size1">Price</p>
+            <p class="linedisplay size1">Rating</p>
+        </div>
+        
+        <div class="maindisplay" style="position: relative;left: 150px;bottom:120px;width:fit-content;height: 150px;overflow: auto;background-color: rgb(191, 232, 244);border-radius: 15px">
+        <%for(i=0;i<pandagow.length;i++){%>
+            <p class="linedisplay"><%=pandagow[i].Name%></p>
+            <%b=pandagow[i].Name%>
+            <!-- <img src= "images/"+<%=b%>+.jpeg alt="grand karthikeya"> -->
+            <p class="linedisplay"><%=pandagow[i].Price%></p>
+            <p class="linedisplay"><%=pandagow[i].Rating%></p>
+            <br>
+            <%}%>
+    </div>
+    
+    <%}%>
+        </div>
+    <div class="hold" style="position: relative;top: 50px;left: 100px;background-color: white;width: fit-content;padding: 20px;border-radius: 10px;box-shadow: 20px 20px 20px;">
+        <div style="background-color: rgb(255, 255, 255);">
+            <h2 style="font-size: 30px;text-align: center;">Book a Hotel!</h2>
+        </div> 
+        <form id="form2" method="post" action="/hotels"><!--form2-->
+            <div>
+                <label class="circle">Enter your destination:</label>
+                <input class="circle" name="destination" type="text" style="width: 400px;font-size: 17px;text-align: center;height: 30px;font-style: italic;margin-left: 18px;border: none;border-bottom: 1.5px solid black;outline: none;"  >
+                <br>
+                <br>
+                <label class="circle">Enter by hotel name:</label>
+                <input class="circle" name="hotelname" type="text" style="width: 400px;font-size: 15px;text-align: center;height: 30px;font-style: italic;margin-left: 33px;border: none;border-bottom: 1.5px solid black;outline: none;"  >
+                <br>
+                <br>
+                <label style="font-family:'Poppins',sans-serif;">Enter  phone number:</label>
+                <input  class="circle"  name="phno" type="tel" style="width: 400px;font-size: 17px;text-align: center;position:relative;left: 32px;height: 30px;font-style: italic;border: none;border-bottom: 1.5px solid black;outline: none;" >
+                <br>
+                <br>
+                <label style="font-family:'Poppins',sans-serif;" >Enter number of people:</label>
+                <input class="circle" name="people" type="number" style="width: 400px;font-size: 17px;text-align: center;position:relative;right: 5px;height: 30px;font-style: italic;margin-left: 13px;border: none;border-bottom: 1.5px solid black;outline: none;"   >
+                <br>
+                <br>
+                <button type="submit" name="logic" value="book" style="position: relative;left: 230px;height:50px ;width:200px;border-radius: 30px;background-color:rgba(255, 102, 0, 0.703);font-family:'Poppins',sans-serif;color: white;border: none;font-weight: 800;cursor: pointer;"><strong style="font-size:15px;">Book</strong></button>
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+    <br><br><br>
+    <form id="form3" method="post" action="/hotels">
+        <h2>Search the reviews on your desired hotel</h2>
+        <input style="border-radius: 20px;height: 40px;width:250px;border-color:rgb(179, 148, 23);margin-right: 10px;" type="text" name="hotelname1" placeholder="enter the hotel name">
+        <input style="border-radius: 20px;height: 40px;width:250px;border-color:rgb(179, 148, 23);" type="text" name="place1" placeholder="enter the place">
+        <button style="font-family:'poppins';height:40px ;width:130px;border-radius: 30px;background-color:#638A3A;border-color: #638A3A;position: relative;border: none;color: white;font-weight: 700;cursor: pointer;" type="submit" name="logic" value="seasub">Search reviews</button>
+    </form>
+    <form  id="form4" style="width: fit-content;" method="post" action="/hotels">
+        <h2 style="font-family: 'poppins'">Write a review on the hotel</h2>
+        <input style="border-radius: 10px;height: 25px;width:250px;border-color:rgb(179, 148, 23);" type="text" name="hotelna" placeholder="enter the hotel name">
+        <input class="displ" style="border-radius: 10px;height: 25px;width:250px;border-color:rgb(179, 148, 23);" type="text" name="username" placeholder="enter your username">
+        <br><br>
+        <textarea style="font-family:'poppins';height:300px;width:600px;border-color: rgb(179, 148, 23);" autocomplete="off" name="review" placeholder="start writing the review"></textarea>
+        <br><br>
+        <button style="font-family:'poppins';position: relative;left: 450px;height:40px ;width:150px;border-radius: 30px;background-color:rgb(237, 79, 11);" type="submit" name="logic" value="seasubm">write review</button>
+    </form>
+    <div class="approve" style="position: relative;bottom: 900px;left: 950px;width: fit-content;font-size: 25px;">
+        <p style="font-size: 30px;">You have successfully booked a hotel!</p>
+    </div>
+    <div class="approve1" style="position: relative;bottom: 400px;left:100px;width: fit-content;font-size:25px">
+        <p>You have successfully wrote a review!</p>
+    </div>
+    <%a=Object.keys(enjoy)%>
+    <%if(a.length>0){%>
+        <p style="font-size: 30px;position: relative;bottom:100px;left:150px;width: fit-content;position: relative;top:100px;left: 50px;color:blue"><b>Reviews</b></p>
+        
+    <div class="torcher">
+        <%for(i=0;i<a.length;i++){%>
+            <div class="revie">
+                <p style="line-height: 1;"><b><%=a[i]%></b></p>
+                <p style="line-height: 0.7;position: relative;top: -9px;font-size: small"><small>12/04/2023</small></p>
+                <p><%=enjoy[a[i]]%></p>
+            </div>
+            
+            
+            <%}%>
+    </div>
+    <%}%>
+<!--<div id="FFce"></div>-->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+    .revie{
+        background-color: white;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 15px;
+        min-height: 30px;
+        cursor: pointer;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+        font-family: 'Poppins',sans-serif;
+    }
+    .revie:hover{
+        transform: 1.01;
+        box-shadow: 0px 10px 15px rgba(0,0,0,0.3);
+    }
+    .circle{
+        font-family:'Poppins',sans-serif;
+        /* border-radius: 20px; */
+    }
+    #form4{
+        position: relative;
+        bottom:80px;
+        left:800px;
+    }
+    #form3{
+        position: relative;
+        top:650px;
+        width: 1490px;
+        font-family: 'poppins','sans-serif';
+        padding: 10px;
+        background-color:silver;
+
+    }
+    .linedisplay{
+            display: inline-block;
+            font-family: 'poppins','sans-serif';
+            width:220px;
+            text-align: center;
+            /* padding-left: 50px;
+            padding-top: 50px;
+            padding-right: 50px; */
+        }
+        .torcher{
+            position: relative;
+            left:150px;
+            top:100px;
+            left:90px;
+            width: 600px;
+            overflow: auto;
+            padding:20px;
+            border-radius: 20px;
+        }
+    .coconut{
+        font-family: 'poppins','sans-serif';
+        font-size: 22px;
+
+         
+    }
+    .oil{
+        font-family: 'poppins','sans-serif';
+        font-size:18px;
+    }
+    .approve{
+        visibility:hidden;
+    }
+    .approve1{
+        visibility:hidden;
+    }
+    .recover{
+        visibility: visible;
+        color:rgb(0, 52, 0);
+        padding:20px;
+        background-color: red;
+    }
+
+    /*.marcus{
+        background-color: darkblue;
+        width: 20px;
+        height: 20px;
+    }*/
+</style>
+<script>
+    // var maximus = document.getElementById("FFce");
+    // var divider = document.createElement("div");
+    // divider.classList.add("marcus");
+    // maximus.appendChild(divider);
+    
+
+    //var c = "add";
+    // for(i=0;i<5;i++){
+    //     var d = c+String(i);
+    //     alert(d);
+    // }
+    // const para = document.createElement("img");
+    // para.alt="we are screwed";
+
+    // var try1 = document.getElementsByClassName("sample")
+    // var space1 = document.createTextNode("bjjgvgh gcgh");
+    // try1[0].appendChild(space1);
+    form2.addEventListener("submit",(e)=>{
+        var a = document.getElementsByClassName("approve")[0];
+        var b = document.getElementsByClassName("circle")[4].value;
+        if(b==null||b===""){
+            e.preventDefault();
+            console.log(b);
+            // a.classList.add("recover");
+        }
+        else{
+            console.log("hjvhjk");
+            a.classList.add("recover");
+            setTimeout(f1,5000);
+            function f1(){
+            a.classList.remove("recover");
+        }
+        }
+
+
+        
+    })
+    form4.addEventListener("submit",(e)=>{
+        var c = document.getElementsByClassName("approve1")[0]; 
+        var d = document.getElementsByClassName("displ")[0].value; 
+        if(d==null||d===""){
+            e.preventDefault();
+            console.log(d);
+            // a.classList.add("recover");
+        }
+        else{
+            // console.log("hjvhjk");
+            c.classList.add("recover");
+            setTimeout(f1,5000);
+            function f1(){
+            c.classList.remove("recover");
+        }
+        }
+        
+    })
+</script>
+</body>
+</html>

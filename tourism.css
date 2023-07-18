@@ -1,0 +1,36 @@
+body{
+    margin: 0px;
+}
+.corner{
+    position: relative;
+    left: 300px;
+}
+.navdec{
+    font-size:17.5px;
+}
+.nodec{
+    color: black;
+    text-decoration: none;
+}
+.flex-cointainer{
+    background-color: rgb(229, 225, 225);
+    display:flex;
+    flex-direction:row;
+    margin-right: 140px;
+    margin-left: 50px;    
+}
+.dest{
+    margin-right: 20px;
+}
+.flex-container2{
+    display:flex;
+    direction:row;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.dest2{
+    margin-right:20px;
+}
+.dest1:hover{
+    transform: scale(1.20);
+}
